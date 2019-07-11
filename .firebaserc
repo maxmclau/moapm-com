@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "prod": "moapm-com",
+    "default": "moapm-com"
+  }
+}

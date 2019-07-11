@@ -1,0 +1,373 @@
+@import 'reset.css';
+@import 'fonts.css';
+
+::selection {
+    background: #7DFFB1;
+}
+
+html,
+body {
+    min-width: 38rem;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+#♥ {
+    font-family: 'Akkurat-Mono', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    position: relative;
+    width: 30rem;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+header {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 36px 0;
+    opacity: 0;
+    -webkit-animation: enterOpacity 600ms 400ms forwards;
+            animation: enterOpacity 600ms 400ms forwards;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+}
+
+header svg#logo {
+    height: 30px;
+}
+
+header svg .logo-path {
+    fill: #0000FF;
+    -webkit-transition: fill 200ms;
+            transition: fill 200ms;
+}
+
+.error header svg .logo-path {
+    fill: #ff0000 !important;
+}
+
+section {
+    width: 100%;
+}
+
+section#pcb-animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    padding: 1.4rem 0;
+}
+
+section#pcb-animation canvas {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+}
+
+section#pcb-animation canvas#pcb {
+    z-index: 3;
+}
+
+section#pcb-animation canvas#components {
+    z-index: 4;
+}
+
+section#pcb-animation canvas#pcb.enter {
+    -webkit-animation: enterBlurRotate 600ms;
+            animation: enterBlurRotate 600ms;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    
+}
+
+section h1,
+section h2,
+section h3,
+section h4 {
+    font-family: 'AvenirNextLTPro-Bold', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+}
+
+section h1 {
+    font-size: 2.6em;
+    padding: 1rem 0 2rem 0;
+}
+
+section h2 {
+    font-size: 1.6em;
+    padding: 0.9rem 0 1.3rem 0;
+}
+
+section h3 {
+    font-size: 0.9em;
+    padding: 0.6rem 0 0.9rem 0;
+}
+
+section.legal p,
+section.legal li {
+    font-size: 0.8em;
+    font-weight: 400;
+    line-height: 1.8em;
+    padding: 0.4rem 0;
+}
+
+section.legal ol[type=i] {
+    padding: 0 0 0 2rem;
+}
+
+section#blurb h1 {
+    text-align: center;
+    opacity: 0;
+    -webkit-animation: enterTranslateBlur 600ms 800ms forwards;
+            animation: enterTranslateBlur 600ms 800ms forwards;
+}
+
+section#blurb p {
+    font-size: 0.9em;
+    font-weight: 400;
+    line-height: 1.6em;
+    padding: 0 2.2rem;
+    opacity: 0;
+    -webkit-animation: enterTranslateBlur 600ms 1000ms forwards;
+            animation: enterTranslateBlur 600ms 1000ms forwards;
+}
+
+section#blurb a {
+    color: #0000ff;
+    text-decoration: underline;
+}
+
+section#signin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+}
+
+section#signin form {
+    width: 16rem;
+}
+
+section#signin form input {
+    font-size: 1.1em;
+    color: #303030;
+    box-sizing: border-box;
+    min-width: 0;
+    padding: 0.6em 0;
+    margin: 0 0;
+    border: 0;
+    border-bottom: 1px solid;
+    border-color: #303030;
+}
+
+section#signin form input:focus {
+    color: #0000ff;
+    border-color: #0000ff;
+}
+
+section#signin form.failed input {
+    border-color: #ff0000;
+}
+
+section#signin form input[name=password] {
+    width: 100%;
+}
+
+section#signin form button[type=submit] {
+    font-size: 0.7em;
+    padding: 0.6em;
+    background: #000000;
+    border: 0;
+    color: #ffffff;
+    border-radius: 0.4em;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition: background-color 200ms;
+            transition: background-color 200ms;
+}
+
+section#signin form button[type=submit]:hover {
+    background: #0000ff;
+}
+
+section#signin form .signin-cont {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+}
+
+section#signin form label {
+    display: block;
+    color: #000000;
+    font-size: 0.4em;
+    transform-origin: top left;
+    -webkit-transform: translate(0.6em, 0) scale(1);
+            transform: translate(0.6em, 0) scale(1);
+    -webkit-transition: transform 120ms, color 300ms;
+            transition: transform 120ms, color 300ms;
+}
+
+section#signin form.failed label {
+    color: #ff0000;
+}
+
+section#signin form .inactive label {
+    -webkit-transform: translate(0, 2.8em) scale(1.2);
+            transform: translate(0, 2.8em) scale(1.2);
+}
+
+section#signin form .id-cont,
+section#signin form .password-cont {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    padding: 0 0 1.2em 0;
+}
+
+section#signin form .id-cont.inactive {
+    cursor: text;
+}
+
+
+section#signin form .id-cont .individuals {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: stretch;
+}
+
+section#signin form .id-cont .individuals input {
+    flex: 1;
+    text-align: center;
+    -webkit-transition: margin 300ms, color 200ms, border-color 300ms;
+            transition: margin 300ms, color 200ms, border-color 300ms;
+}
+
+section#signin form .id-cont.active .individuals input {
+    margin: 0 0.3em;
+}
+
+section#signin #sign-up {
+    font-size: 0.6em;
+    padding: 2.8em 0 0 0;
+}
+
+section#signin #sign-up a:hover::before {
+    content: "New registrations closed.";
+    position: absolute;
+    background: #ffffff;
+    color: #ff0000;
+}
+
+section#signin #sign-up a {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #0000ff;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8rem 0 3.2rem;
+    opacity: 0;
+    -webkit-animation: enterTranslateBlur 600ms 1200ms forwards;
+            animation: enterTranslateBlur 600ms 1200ms forwards;
+}
+
+footer div#copy {
+    color: #818181;
+    text-align: left;
+}
+
+footer div#copy span {
+    font-size: 0.5em;
+}
+
+footer div#links {
+    text-align: right;
+}
+
+footer div#links a {
+    font-size: 0.7em;
+    color: #5252ff;
+    text-decoration: none;
+    padding: 0 0 0 1.2rem;
+}
+
+footer div#links a:hover {
+    color: #0000ff;
+}
+
+@keyframes enterOpacity {
+    0% { 
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes enterOpacity {
+    0% { 
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes enterTranslateBlur {
+    0% { 
+        opacity: 0;
+        transform: translate(0px, 12px);
+        filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0px, 0px);
+        filter: blur(0);
+    }
+}
+
+@-webkit-keyframes enterTranslateBlur {
+    0% { 
+        opacity: 0;
+        -webkit-transform: translate(0px, 12px);
+        -webkit-filter: blur(2px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate(0px, 0px);
+        -webkit-filter: blur(0);
+    }
+}
+
+
+@keyframes enterBlurRotate {
+    0% { 
+        opacity: 0;
+        transform: rotate(2deg) translate(0px, 16px) scale(0.96);
+        filter: blur(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg) translate(0px, 0px) scale(1);
+        filter: blur(0);
+    }
+}
+
+@-webkit-keyframes enterBlurRotate {
+    0% { 
+        opacity: 0;
+        -webkit-transform: rotate(2deg) translate(0px, 16px) scale(0.96);
+        -webkit-filter: blur(6px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: rotate(0deg) translate(0px, 0px) scale(1);
+        -webkit-filter: blur(0);
+    }
+}
