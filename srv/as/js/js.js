@@ -1,6 +1,6 @@
 'use strict'
 
-const dpr = window.devicePixelRatio || 1;
+const dpr = 2; // window.devicePixelRatio || 1;
 
 class Workers {
     static async fetchJSON(url) {
@@ -86,28 +86,28 @@ const anim = {
         this.canvases.pcb.ctx.drawImage( // draw blank pcb
             this.imgs.pcb, 
             0, 0,
-            this.imgs.pcb.width/dpr, this.imgs.pcb.height/dpr
+            this.canvases.pcb.el.width/dpr, this.canvases.pcb.el.height/dpr
         );
 
-        Promise.all([ // we wait for the spritesheet to decode, the json to be fetched and the canvas to finish it's entrance animation
+        this.canvases.pcb.el.classList.replace('hide', 'enter'); // trigger canvas entrance
+
+        let [ss, json] = await Promise.all([ // we wait for the spritesheet to decode, the json to be fetched and the canvas to finish it's entrance animation
             Workers.decodeImage('/as/img/sprite-comp.png'),
             Workers.fetchJSON('/as/d/spritesheet.json'),
             new Promise((resolve, reject) => {
                 this.canvases.pcb.el.addEventListener(Workers.returnAnimationEvent(), function() {resolve();}, false);
             })
-        ]).then(([ss, json]) => {
-            this.imgs.spritesheet = ss;
-            this.map = json;
+        ])
+        
+        this.imgs.spritesheet = ss;
+        this.map = json;
 
-            this.then = Date.now();
-            this.initiated = this.then;
+        this.then = Date.now();
+        this.initiated = this.then;
 
-            this.completed = 0; // frames finished animating
+        this.completed = 0; // frames finished animating
 
-            window.requestAnimationFrame(() => { this.render() });
-        });
-
-        this.canvases.pcb.el.classList.replace('hide', 'enter'); // trigger canvas entrance
+        window.requestAnimationFrame(() => { this.render() });
     },
 
     render: function() {
