@@ -63,9 +63,13 @@ section#pcb-animation canvas {
     position: absolute;
     width: 400px;
     height: 400px;
+    box-shadow: 0 0 0 #000;
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
 }
 
 section#pcb-animation canvas#pcb {
+    opacity: 0;
     z-index: 3;
 }
 
@@ -74,10 +78,8 @@ section#pcb-animation canvas#components {
 }
 
 section#pcb-animation canvas#pcb.enter {
-    -webkit-animation: enterBlurRotate 600ms;
-            animation: enterBlurRotate 600ms;
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+    -webkit-animation: enterBlurRotate 600ms ease-out 860ms forwards;
+            animation: enterBlurRotate 600ms ease-out 860ms forwards;
     
 }
 
